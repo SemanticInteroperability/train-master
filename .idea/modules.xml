@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/train/batch/batch.iml" filepath="$PROJECT_DIR$/train/batch/batch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/train/business/business.iml" filepath="$PROJECT_DIR$/train/business/business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/train/common/common.iml" filepath="$PROJECT_DIR$/train/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/train/gateway/gateway.iml" filepath="$PROJECT_DIR$/train/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/train/generator/generator.iml" filepath="$PROJECT_DIR$/train/generator/generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/train/member/member.iml" filepath="$PROJECT_DIR$/train/member/member.iml" />
+      <module fileurl="file://$PROJECT_DIR$/train/train.iml" filepath="$PROJECT_DIR$/train/train.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/train-master.iml" filepath="$PROJECT_DIR$/.idea/train-master.iml" />
+    </modules>
+  </component>
+</project>
