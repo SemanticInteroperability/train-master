@@ -176,7 +176,7 @@ public class ConfirmOrderService {
             //   time unit – time unit 时间单位
             //  */
             // // boolean tryLock = lock.tryLock(30, 10, TimeUnit.SECONDS); // 不带看门狗
-            // boolean tryLock = lock.tryLock(0, TimeUnit.SECONDS); // 带看门狗
+            // boolean tryLock = lock.tryLock(0, TimeUnit.SECONDS); // 带看门狗 默认30秒，10秒刷新一次
             // if (tryLock) {
             //     LOG.info("恭喜，抢到锁了！");
             //     // 可以把下面这段放开，只用一个线程来测试，看看redisson的看门狗效果
@@ -234,7 +234,7 @@ public class ConfirmOrderService {
             LOG.info("购票流程结束，释放锁！lockKey：{}", lockKey);
             redisTemplate.delete(lockKey);
             // LOG.info("购票流程结束，释放锁！");
-            // if (null != lock && lock.isHeldByCurrentThread()) {
+            // if (null != lock && lock.isHeldByCurrentThread()) {//只有当前线程才能释放锁
             //     lock.unlock();
             // }
         }
@@ -257,7 +257,8 @@ public class ConfirmOrderService {
      * 售票
      * @param confirmOrder
      */
-    private void sell(ConfirmOrder confirmOrder) {
+    private
+     void sell(ConfirmOrder confirmOrder) {
         // 为了演示排队效果，每次出票增加200毫秒延时
         try {
             Thread.sleep(200);
@@ -324,6 +325,7 @@ public class ConfirmOrderService {
         // }
 
         // 查出余票记录，需要得到真实的库存
+        // 超卖原因:假设库存为1，多个线程同时读到余票记录,都认为库存为1，就都往后去选座购票,最终导致超卖
         DailyTrainTicket dailyTrainTicket = dailyTrainTicketService.selectByUnique(date, trainCode, start, end);
         LOG.info("查出余票记录：{}", dailyTrainTicket);
 
