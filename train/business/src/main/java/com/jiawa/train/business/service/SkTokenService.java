@@ -46,7 +46,7 @@ public class SkTokenService {
     @Resource
     private SkTokenMapperCust skTokenMapperCust;
 
-    @Autowired
+    @Resource
     private StringRedisTemplate redisTemplate;
 
     @Value("${spring.profiles.active}")
