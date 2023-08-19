@@ -50,7 +50,7 @@ public class ConfirmOrderController {
      * @param req
      * @return
      */
-    // 接口的资源名称不要和接口路径一致，会导致限流后走不到降级方法中
+    // 接口的资源名称不要和接口路径一致，会导致限流后走不到降级方法中（在Sentinel控制板设置流控规则，不在代码里面写）
     @SentinelResource(value = "confirmOrderDo", blockHandler = "doConfirmBlock")
     @PostMapping("/do")
     public CommonResp<Object> doConfirm(@Valid @RequestBody ConfirmOrderDoReq req) {
